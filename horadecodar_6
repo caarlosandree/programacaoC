@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <ctype.h> // para toupper()
+
+int main() {
+    int numeroJogador, numeroComputador;
+    char tipoComparacao;
+    char jogarNovamente;
+
+    srand(time(0)); // Inicializa gerador de números aleatórios
+
+    do {
+        numeroComputador = rand() % 100 + 1; // Número aleatório entre 1 e 100
+
+        printf("\nBem-vindo ao jogo Maior, Menor ou Igual!\n");
+        printf("Escolha o tipo de comparação que deseja fazer:\n");
+        printf("M. Maior\n");
+        printf("N. Menor\n");
+        printf("T. Igual\n");
+
+        printf("Escolha a comparação (M/N/T): ");
+        scanf(" %c", &tipoComparacao);
+        tipoComparacao = toupper(tipoComparacao); // Converte para maiúscula
+
+        if (tipoComparacao != 'M' && tipoComparacao != 'N' && tipoComparacao != 'T') {
+            printf("Opção inválida! Tente novamente com M, N ou T.\n");
+            continue; // Volta para o começo do laço
+        }
+
+        printf("Agora, digite o número que deseja comparar: ");
+        scanf("%d", &numeroJogador);
+
+        printf("O número do computador é %d\n", numeroComputador);
+
+        switch (tipoComparacao) {
+            case 'M':
+                printf("Você escolheu Maior.\n");
+                if (numeroJogador > numeroComputador) {
+                    printf("Seu número é maior. Você ganhou!\n");
+                } else if (numeroJogador < numeroComputador) {
+                    printf("Seu número é menor. Você perdeu!\n");
+                } else {
+                    printf("Os números são iguais. Você perdeu!\n");
+                }
+                break;
+
+            case 'N':
+                printf("Você escolheu Menor.\n");
+                if (numeroJogador < numeroComputador) {
+                    printf("Seu número é menor. Você ganhou!\n");
+                } else if (numeroJogador > numeroComputador) {
+                    printf("Seu número é maior. Você perdeu!\n");
+                } else {
+                    printf("Os números são iguais. Você perdeu!\n");
+                }
+                break;
+
+            case 'T':
+                printf("Você escolheu Igual.\n");
+                if (numeroJogador == numeroComputador) {
+                    printf("Os números são iguais. Você ganhou!\n");
+                } else {
+                    printf("Os números são diferentes. Você perdeu!\n");
+                }
+                break;
+        }
+
+        printf("\nDeseja jogar novamente? (S/N): ");
+        scanf(" %c", &jogarNovamente);
+        jogarNovamente = toupper(jogarNovamente);
+
+    } while (jogarNovamente == 'S');
+
+    printf("Obrigado por jogar!\n");
+
+    return 0;
+}
