@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+
+    float temperatura, umidade;
+    unsigned int estoque, estoqueMinimo = 1000; // Estoque mínimo para comparação
+
+    printf("Digite a temperatura: ");
+    scanf("%f", &temperatura);
+    printf("Digite a umidade: ");
+    scanf("%f", &umidade);
+    printf("Digite o estoque: ");
+    scanf("%u", &estoque);
+
+    if (temperatura > 30){
+        printf("ALERTA! A temperatura está alta.\n");
+    } else {
+        printf("A temperatura está dentro dos parametros.\n");
+    }
+
+    if (umidade > 50){
+        printf("ALERTA! A umidade elevada.\n");
+    } else {
+        printf("A umidade está dentro dos parametros.\n");
+    }
+
+    if (estoque < estoqueMinimo){
+        printf("O estoque está abaixo do mínimo.\n");
+    } else if (estoque == estoqueMinimo){
+        printf("ALERTA! O estoque no mínimo.\n");
+    } else {
+        printf("O estoque está dentro dos parametros.\n");
+    }
+}
