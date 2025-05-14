@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int main() {
+    int opcao;
+    char user[10];
+    char *opcoes[] = {"pedra", "papel", "tesoura"};
+    int computador;
+
+    srand(time(NULL));  // Inicializa o gerador de números aleatórios
+
+    // Menu
+    printf("Menu principal\n");
+    printf("1. Jogar\n");
+    printf("2. Regras\n");
+    printf("3. Sair\n");
+
+    // Escolher a opção
+    printf("Digite a opção desejada: ");
+    scanf("%d", &opcao);
+    getchar(); // Limpa o '\n' do buffer após scanf
+
+    switch (opcao) {
+        case 1:
+            computador = rand() % 3;  // 0 a 2
+            printf("Escolha pedra, papel ou tesoura: ");
+            fgets(user, sizeof(user), stdin);
+            user[strcspn(user, "\n")] = '\0'; // Remove o \n
+
+            printf("Computador escolheu: %s\n", opcoes[computador]);
+
+            if (strcmp(user, opcoes[computador]) == 0) {
+                printf("Empate!\n");
+            } else if (
+                (strcmp(user, "pedra") == 0 && strcmp(opcoes[computador], "tesoura") == 0) ||
+                (strcmp(user, "papel") == 0 && strcmp(opcoes[computador], "pedra") == 0) ||
+                (strcmp(user, "tesoura") == 0 && strcmp(opcoes[computador], "papel") == 0)
+            ) {
+                printf("Você ganhou!\n");
+            } else if (
+                strcmp(user, "pedra") == 0 ||
+                strcmp(user, "papel") == 0 ||
+                strcmp(user, "tesoura") == 0
+            ) {
+                printf("Você perdeu!\n");
+            } else {
+                printf("Escolha inválida.\n");
+            }
+
+            break;
+
+        case 2:
+            printf("Regras:\n");
+            printf("- Pedra ganha da tesoura\n");
+            printf("- Tesoura ganha do papel\n");
+            printf("- Papel ganha da pedra\n");
+            break;
+
+        case 3:
+            printf("Saindo...\n");
+            break;
+
+        default:
+            printf("Opção inválida.\n");
+    }
+
+    return 0;
+}
