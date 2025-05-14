@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int main() {
+    // Declaração de variáveis
+    char produtoA[100] = "Produto A";
+    char produtoB[100] = "Produto B";
+
+    // Declaração de valor do estoque
+    // O valor do estoque é declarado como unsigned int, o que significa que ele não pode ser negativo.
+    // unsigned int é um tipo de dado inteiro sem sinal, o que significa que ele só pode armazenar valores não negativos.
+    unsigned int estoqueA = 1000; // Estoque do Produto A
+    unsigned int estoqueB = 2000; // Estoque do Produto B
+
+    // Declaração de preço do produto
+    // O preço do produto é declarado como float, o que significa que ele pode armazenar números decimais.
+
+    float precoA = 10.50; // Preço do Produto A
+    float precoB = 20.75; // Preço do Produto B
+
+    // Declaração de estoque mínimo
+    // O estoque mínimo é declarado como unsigned int, o que significa que ele não pode ser negativo.
+    unsigned int estoqueMinimoA = 500; // Estoque mínimo do Produto A
+    unsigned int estoqueMinimoB = 2500; // Estoque mínimo do Produto B
+
+    // Declaração de valor total do estoque
+    // O valor total do estoque é declarado como double, o que significa que ele pode armazenar números decimais com maior precisão.
+    double valorTotalA; // Valor total do estoque do Produto A
+    double valorTotalB; // Valor total do estoque do Produto B
+
+    // Cálculo da comparação do estoque
+    // O estoque do Produto AeB é comparado com o estoque mínimo do Produto AeB.
+    int resultadoA, resultadoB; // Resultados da comparação do estoque
+    // O resultado da comparação é armazenado em variáveis inteiras, onde 1 representa verdadeiro e 0 representa falso.
+    resultadoA = estoqueA > estoqueMinimoA; // Verifica se o estoque do Produto A está abaixo do mínimo
+    resultadoB = estoqueB > estoqueMinimoB; // Verifica se o estoque do Produto B está abaixo do mínimo
+
+    // Cálculo do valor total do estoque
+    // O valor total do estoque é calculado multiplicando o preço pelo estoque.
+    valorTotalA = estoqueA * precoA; // Cálculo do valor total do estoque do Produto A
+    valorTotalB = estoqueB * precoB; // Cálculo do valor total do estoque do Produto B
+    
+    // Exibir as informações do produto
+    // O valor total do estoque é calculado multiplicando o preço pelo estoque.
+    printf("O produto %s tem um estoque de %u unidades e um preço de R$ %.2f.\n", produtoA, estoqueA, precoA); // Exibe as informações do Produto A
+    printf("O produto %s tem um estoque de %u unidades e um preço de R$ %.2f.\n", produtoB, estoqueB, precoB); // Exibe as informações do Produto B
+
+    // Comparações com o valor mínimo do estoque
+    // O valor mínimo do estoque é comparado com o estoque atual para verificar se o estoque está abaixo do mínimo.
+    printf("O produto %s tem estoque mínimo %d\n", produtoA, resultadoA); // Exibe o resultado da comparação do Produto A
+    printf("O produto %s tem estoque mínimo %d\n", produtoB, resultadoB); // Exibe o resultado da comparação do Produto B
+
+    // Cálculo do valor total do estoque
+    printf("O valor total do estoque do produto %s é R$ %.2f.\n", produtoA, valorTotalA); // Exibe o valor total do estoque do Produto A
+    printf("O valor total do estoque do produto %s é R$ %.2f.\n", produtoB, valorTotalB); // Exibe o valor total do estoque do Produto B
+
+}
